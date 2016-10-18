@@ -11,29 +11,113 @@
 	//= template/header.html
 
 	<section class="content">
-		<div class="paper">
-			<div class="blend" id="picture">
+		<div class="main-login" id="mainLogin"></div>
+		<div class="modal _hidden" id="modalLogin">
+			<div class="modal-bg"></div>
+			<div class="modal-wrapper">
+				<div class="modal-close" id="modalClose"></div>
+				<div class="forms" id="Forms" state="isLogin">
+
+					<form class="form-login" method="post">
+						<h2 class="form-header">Login</h2>
+						<div class="form-input">
+							<input class="input" type="email" placeholder="Email" required>
+						</div>
+						<div class="form-input">
+							<input class="input" type="text" placeholder="Password"  required>
+						</div>
+						<div class="overflow">
+							<span class="link" id="buttonRecover">Forgot password?</span>
+							<input class="form-submit button-login" type="submit" name="" value="Login" disabled>
+						</div>
+						<div class="separator">
+							<span class="separator-inner">Not a member?</span>
+						</div>
+						<div class="button-toggle button-signup" id="buttonSignup">Sign Up</div>
+					</form>
+
+					<form class="form-signup" method="post">
+						<h2 class="form-header">Sign Up</h2>
+						<div class="form-input">
+							<input class="input" type="email" name="email" placeholder="Email" required>
+						</div>
+						<div class="overflow">
+							<input class="form-submit button-signup" type="submit" name="" value="Sign Up" disabled>
+						</div>
+						<div class="separator">
+							<span class="separator-inner">Already a member?</span>
+						</div>
+						<div class="button-toggle button-login" id="buttonLogin">Log In</div>
+					</form>
+
+					<form class="form-recover" method="post">
+						<h2 class="form-header">Forgot password?</h2>
+						<div class="form-text">Enter your e-mail and follow the instructions.</div>
+						<div class="form-input">
+							<input class="input" type="text" name="email" placeholder="Email" required>
+						</div>
+						<div class="overflow">
+							<span class="link" id="buttonRemembered">Remembered?</span>
+							<input class="form-submit button-login" type="submit" name="" value="Send" disabled>
+						</div>
+					</form>
+
+				</div>
 			</div>
-			<input type="text" name="pictext" class="pictext" placeholder="Type your text">
-			<div class="sticker"></div>
 		</div>
-		<div class="buttons">
-			<div class="buttons-colors">
-				<div class="buttons-colors-item __color-0 button-filter" id="filter0">remove</div>
-				<div class="buttons-colors-item __color-1 button-filter" id="filter1">satellites</div>
-				<div class="buttons-colors-item __color-2 button-filter" id="filter2">witness</div>
-				<div class="buttons-colors-item __color-3 button-filter" id="filter3">the night believer</div>
-				<div class="buttons-colors-item __color-4 button-filter" id="filter4">making friends</div>
-				<div class="buttons-colors-item __color-5 button-filter" id="filter5">clinging to a bad dream</div>
-				<div class="buttons-colors-item __color-6 button-filter" id="filter6">My Complications</div>
-			</div>
+		<div class="forms forms-main" id="mainForms" state="isLogin">
+
+			<form class="form-login" method="post">
+				<h2 class="form-header">Login</h2>
+				<div class="form-input">
+					<input class="input" type="email" placeholder="Email" id="mainInputEmail" required>
+				</div>
+				<div class="form-input">
+					<input class="input" type="text" placeholder="Password"  required>
+				</div>
+				<div class="overflow">
+					<span class="link" id="mainbuttonRecover">Forgot password?</span>
+					<input class="form-submit button-login" type="submit" name="" value="Login" disabled>
+				</div>
+				<div class="separator">
+					<span class="separator-inner">Not a member?</span>
+				</div>
+				<div class="button-toggle button-signup" id="mainbuttonSignup">Sign Up</div>
+			</form>
+
+			<form class="form-signup" method="post">
+				<h2 class="form-header">Sign Up</h2>
+				<div class="form-input">
+					<input class="input" type="email" name="email" placeholder="Email" required>
+				</div>
+				<div class="overflow">
+					<input class="form-submit button-signup" type="submit" name="" value="Sign Up" disabled>
+				</div>
+				<div class="separator">
+					<span class="separator-inner">Already a member?</span>
+				</div>
+				<div class="button-toggle button-login" id="mainbuttonLogin">Log In</div>
+			</form>
+
+			<form class="form-recover" method="post">
+				<h2 class="form-header">Forgot password?</h2>
+				<div class="form-text">Enter your e-mail and follow the instructions.</div>
+				<div class="form-input">
+					<input class="input" type="text" name="email" placeholder="Email" required>
+				</div>
+				<div class="overflow">
+					<span class="link" id="mainbuttonRemembered">Remembered?</span>
+					<input class="form-submit button-login" type="submit" name="" value="Send" disabled>
+				</div>
+			</form>
+
 		</div>
 	</section>
 	
 	//= template/footer.html
 
 	<script type="text/javascript">
-		filter();
+		//form();
 	</script>
 </body>
 </html>

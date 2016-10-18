@@ -8,166 +8,245 @@
 */
 //@import "partials/app";
 
-$img: "http://cdn02.cdn.justjared.com/wp-content/uploads/spotlight/kiernan/BTSKiernan_0003.jpg";
-
-@font-face {
-	font-family: 'Handwriting';
-	src: url('../fonts/Handwriting.eot');
-	src: // url('../fonts/Handwriting.woff2') format('woff2'),
-			 url('../fonts/Handwriting.eot?#iefix') format('embedded-opentype'),
-			 url('../fonts/Handwriting.woff') format('woff'),
-			 url('../fonts/Handwriting.ttf') format('truetype'),
-			 url('../fonts/Handwriting.svg#SegoeUI-Semilight') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-$blue: #0a68c8;
-$green: #459a28;
-$red: #d41010;
-$yellow: #ecdd35;
-
-$colors-list: #0a68c8 #459a28 #d41010 #ecdd35 #000b33 #853c37;
-
 .content {
-	width: 860px;
-	margin: 0 auto;
-}
-
-.paper {
+	width: 1034px;
+	height: 794px;
 	position: relative;
-	width: 80%;
-	height: 35em;
-	background: #FFF;
-	margin: 2em auto;
-	padding: 2em;
-
-	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-	&:before, &:after {
-		content: "";
-		position: absolute; 
-		z-index: -1;
-		box-shadow: 0 0 10px rgba(0,0,0,0.8);
-		top: 50%;
-		bottom: 0;
-		left: 10px;
-		right: 10px;
-		border-radius: 100px / 10px;
-	}
-}
-
-.blend {
-	width: 100%;
-	padding-top: 63.6%;
-	margin: 0 auto;
-	background-image: url($img);
-	background-position: center;
-	background-size: 100%;
+	//background-image: url('http://image.prntscr.com/image/5992c83ad9574311a3cce21034df71df.png');
+	background-image: url('http://image.prntscr.com/image/b4ef939651b34c0ab6d81e91979dca86.png');
 	background-repeat: no-repeat;
-	&[filter="filter1"] {
-		background-image: linear-gradient(
-			lightblue 0%, pink 100%), 
-			linear-gradient(to right, pink 30%, white 100%), 
-			url($img);
-		background-blend-mode: hue;
-	}
-	&[filter="filter2"] {
-		background-image: linear-gradient(
-			lightblue 0%, pink 100%), 
-			linear-gradient(to right, pink 30%, white 100%), 
-			url($img);
-		background-blend-mode: exclusion;
-	}
-	&[filter="filter3"] {
-		background-image: linear-gradient(#a60000 0, #a60000 100%), 
-			url($img);
-		background-blend-mode: lighten;
-	}
-	&[filter="filter4"] {
-		background-image: linear-gradient($yellow 0, $yellow 100%), 
-			url($img);
-		background-blend-mode: color-burn;
-	}
-	&[filter="filter5"] {
-		background-image: linear-gradient(#000b33 0, #000b33 100%), 
-			linear-gradient(#fffcde 0, #fffcde 100%), 
-			url($img);
-		background-blend-mode: screen, multiply;
-	}
-	&[filter="filter6"] {
-		background-image: url('http://i.imgur.com/csrz6DS.jpg'), 
-			url($img);
-		background-blend-mode: screen;
-	}
+	background-position: center top;
+	margin: 0 auto;
 }
 
-.pictext {
+.main-login {
 	position: absolute;
-	right: 2em;
-	bottom: 2em;
-	border: none;
-	font-family: 'Handwriting', sans-serif;
-	font-size: 2em;
-	font-weight: 600;
-	text-align: right;
-	height: 1em;
-	&:focus {
-		outline: none;
+	top: 0;
+	right: 94px;
+	width: 70px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.modal {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	&._hidden {
+		display: none;
+	}
+	&-bg {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: #000000;
+		opacity: 0.5;
+	}
+	&-wrapper {
+		position: relative;
+		z-index: 1;
+		padding: 20px;
+		background-color: #ffffff;
+	}
+	&-close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		width: 13px;
+		height: 13px;
+		background-color: #333;
+		border-radius: 50%;
+		cursor: pointer;
+		&:before, &:after {
+			position: absolute;
+			content: '';
+			left: 6px;
+			top: 2px;
+			height: 9px;
+			width: 1px;
+			background-color: #ffffff;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			background-color: #444444;
+		}
 	}
 }
 
-.buttons {
-	padding: 0 3em;
-	&-colors {
-		&-item {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background-color: grey;
-
-			width: 21%;
-			height: 60px;
-
-			float: left;
-			box-sizing: border-box;
-			margin: 2%;
-			padding: 0.5em;
-			border-radius: .6em;
-			cursor: pointer;
-
-			font-family: 'Arial', sans-serif;
-			text-align: center;
-			color: #ffffff;
-			opacity: 0.8;
-			text-transform: uppercase;
-			font-weight: 600;
-
-			@each $blend-color in $colors-list {
-				$i: index($colors-list, $blend-color);
-				&.__color-#{$i} {
-					background-color: $blend-color;
-				}
+.forms {
+	&[state="isLogin"] {
+		.form {
+			&-login {
+				display: block;
+			}
+			&-signup {
+				display: none;
+			}
+			&-recover {
+				display: none;
+			}
+		}
+	}
+	&[state="isSignup"] {
+		.form {
+			&-login {
+				display: none;
+			}
+			&-signup {
+				display: block;
+			}
+			&-recover {
+				display: none;
+			}
+		}
+	}
+	&[state="isRecover"] {
+		.form {
+			&-login {
+				display: none;
+			}
+			&-signup {
+				display: none;
+			}
+			&-recover {
+				display: block;
 			}
 		}
 	}
 }
 
-.sticker {
-	width: 6em;
-	height: 3em;
-	background: #FFF;
-	position: absolute;
-	top: 0;
-	left: -3em;
-	transform: rotate(50deg);
-	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-	background:
-radial-gradient(#6b5016 15%, transparent 16%) 0 0,
-radial-gradient(#6b5016 15%, transparent 16%) 8px 8px,
-radial-gradient(#85651f 15%, transparent 20%) 0 1px,
-radial-gradient(#85651f 15%, transparent 20%) 8px 9px;
-background-color:#b18119;
-background-size:16px 16px;
-border-radius: .5em;
+.forms {
+	width: 260px;
+	margin: 0 auto;
+	&.forms-main {
+		padding-top: 100px;
+	}
+}
 
+.form {
+	&-header {
+		text-align: center;
+		color: #333333;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+	&-input {
+		margin-bottom: 20px;
+	}
+	&-submit {
+		float: right;
+		border: none;
+		color: #ffffff;
+		padding: 8px 30px;
+		font-size: 14px;
+		outline: none;
+		font-weight: 600;
+		border-radius: 4px;
+		text-align: center;
+		cursor: pointer;
+	}
+	&-text {
+		font-size: 12px;
+		margin: 10px 0;
+		text-align: center;
+	}
+}
+
+.overflow {
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+.link {
+	color: #4da9d4;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.input {
+	border: #999999 2px solid;
+	font-size: 14px;
+	padding: 8px 8px;
+	width: 100%;
+	outline: none;
+	box-sizing: border-box;
+	&:focus, &:active {
+		border: #222222 2px solid;
+	}
+	&:invalid:not(:focus):not(:placeholder-shown) {
+		border: #a60000 2px solid;
+	}
+	&:invalid:focus:not(:placeholder-shown) {
+		border: #a60000 2px solid;
+	}
+	&:valid {
+		border: #222222 2px solid;
+	}
+}
+
+.separator {
+	width: 100%;
+	height: 1px;
+	background-color: #999999;
+	text-align: center;
+	margin: 20px 0;
+	font-size: 12px;
+	position: relative;
+	&-inner {
+		position: relative;
+		top: -5px;
+		padding: 0 8px;
+		background-color: #ffffff;
+	}
+}
+
+
+.button {
+	&-toggle {
+		color: #ffffff;
+		font-weight: 600;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 4px;
+		width: 100%;
+		height: 40px;
+		cursor: pointer;
+	}
+	&-login {
+		background-color: #4da9d4;
+		&:hover {
+			background-color: #6fc1e7;
+		}
+		&:disabled {
+			background-color: #6fc1e7;
+			cursor: default;
+		}
+	}
+	&-signup {
+		background-color: #dc5126;
+		&:hover {
+			background-color: #e8663e;
+		}
+		&:disabled {
+			background-color: #e8663e;
+			cursor: default;
+		}
+	}
 }
