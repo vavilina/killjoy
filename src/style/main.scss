@@ -9,6 +9,7 @@
 //@import "partials/app";
 
 .content {
+	font-family: 'Arial', sans-serif;
 	width: 1034px;
 	height: 794px;
 	position: relative;
@@ -144,7 +145,12 @@
 		margin-bottom: 20px;
 	}
 	&-input {
-		margin-bottom: 20px;
+		margin-bottom: 10px;
+		height: 54px;
+		label.error {
+			color: #a60000;
+			font-size: 12px;
+		}
 	}
 	&-submit {
 		float: right;
@@ -167,7 +173,6 @@
 
 .overflow {
 	overflow: hidden;
-	margin-top: 20px;
 }
 
 .link {

@@ -11,16 +11,15 @@
 
 function form() {
 
-	var x = $('#mainForms .form-login');
-		console.log(x);
-		inputs(x);
 	$("#mainLogin").click(function() {
 		$("#modalLogin").toggleClass('_hidden');
 		x = $('#Forms .form-login');
+		inputs(x);
 	});
 	$("#modalClose").click(function() {
 		$("#modalLogin").toggleClass('_hidden');
 		x = $('#mainForms .form-login');
+		inputs(x);
 	});
 	
 
@@ -28,7 +27,6 @@ function form() {
 		$("#Forms").attr('state', 'isLogin');
 		x = $('#Forms .form-login');
 		inputs(x);
-		console.log(x);
 	});
 	$("#buttonRemembered").click(function() {
 		$("#Forms").attr('state', 'isLogin');
@@ -50,7 +48,6 @@ function form() {
 		$("#mainForms").attr('state', 'isLogin');
 		x = $('#mainForms .form-login');
 		inputs(x);
-		console.log(x);
 	});
 	$("#mainbuttonRemembered").click(function() {
 		$("#mainForms").attr('state', 'isLogin');
@@ -61,7 +58,6 @@ function form() {
 		$("#mainForms").attr('state', 'isSignup');
 		x = $('#mainForms .form-signup');
 		inputs(x);
-		console.log(x);
 	});
 	$("#mainbuttonRecover").click(function() {
 		$("#mainForms").attr('state', 'isRecover');
@@ -71,24 +67,19 @@ function form() {
 
 }
 function inputs(x) {
-	$('.form-input input', x).keyup(function() {
-
-		var empty = false;
-		$('.form-input input', x).each(function() {
-			if ($(this).val().length == 0) {
-				empty = true;
-			}
-		});
-
-		if (empty) {
-			$('.form-submit', x).prop('disabled', true);
-		} else {
+	console.log(x);
+	x.validate();
+	$('.input', x).on('keyup blur', function () {
+		if (x.valid()) {
 			$('.form-submit', x).prop('disabled', false);
+		} else {
+			$('.form-submit', x).prop('disabled', 'disabled');
 		}
 	});
 }
-
-$(document).ready(function(){
+//
+$(document).ready(function(){ 
+	var x = $("#mainForms .form-login");
+	inputs(x);
 	form();
-	inputs();
 });

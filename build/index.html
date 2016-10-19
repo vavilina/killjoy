@@ -5,6 +5,7 @@
 	<title>Make some noise</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
@@ -26,7 +27,7 @@
 							<input class="input" type="email" placeholder="Email" required>
 						</div>
 						<div class="form-input">
-							<input class="input" type="text" placeholder="Password"  required>
+							<input class="input" type="password" placeholder="Password"  required>
 						</div>
 						<div class="overflow">
 							<span class="link" id="buttonRecover">Forgot password?</span>
@@ -56,7 +57,7 @@
 						<h2 class="form-header">Forgot password?</h2>
 						<div class="form-text">Enter your e-mail and follow the instructions.</div>
 						<div class="form-input">
-							<input class="input" type="text" name="email" placeholder="Email" required>
+							<input class="input" type="email" name="email" placeholder="Email" required>
 						</div>
 						<div class="overflow">
 							<span class="link" id="buttonRemembered">Remembered?</span>
@@ -69,13 +70,13 @@
 		</div>
 		<div class="forms forms-main" id="mainForms" state="isLogin">
 
-			<form class="form-login" method="post">
+			<form class="form-login" method="get" action="">
 				<h2 class="form-header">Login</h2>
 				<div class="form-input">
 					<input class="input" type="email" placeholder="Email" id="mainInputEmail" required>
 				</div>
 				<div class="form-input">
-					<input class="input" type="text" placeholder="Password"  required>
+					<input class="input" type="password" placeholder="Password"  required>
 				</div>
 				<div class="overflow">
 					<span class="link" id="mainbuttonRecover">Forgot password?</span>
@@ -87,7 +88,7 @@
 				<div class="button-toggle button-signup" id="mainbuttonSignup">Sign Up</div>
 			</form>
 
-			<form class="form-signup" method="post">
+			<form class="form-signup" method="get" action="">
 				<h2 class="form-header">Sign Up</h2>
 				<div class="form-input">
 					<input class="input" type="email" name="email" placeholder="Email" required>
@@ -101,11 +102,11 @@
 				<div class="button-toggle button-login" id="mainbuttonLogin">Log In</div>
 			</form>
 
-			<form class="form-recover" method="post">
+			<form class="form-recover" method="get" action="">
 				<h2 class="form-header">Forgot password?</h2>
 				<div class="form-text">Enter your e-mail and follow the instructions.</div>
 				<div class="form-input">
-					<input class="input" type="text" name="email" placeholder="Email" required>
+					<input class="input" type="email" name="email" placeholder="Email" required>
 				</div>
 				<div class="overflow">
 					<span class="link" id="mainbuttonRemembered">Remembered?</span>
@@ -121,7 +122,6 @@
 	</section>
 
 	<script type="text/javascript">
-		//form();
 	</script>
 </body>
 </html>
